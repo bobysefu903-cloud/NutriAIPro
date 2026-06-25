@@ -7,13 +7,16 @@ targets:
     platform: iOS
     deploymentTarget: "17.0"
     sources:
-      - path: .
-        excludes:
-          - "**/*.yml"
-          - ".github"
+      - Models
+      - Services
+      - ViewModels
+      - Views
+      - ContentView.swift
+      - NutriAIProApp.swift
+      - iOS26Extensions.swift
     info:
       properties:
         UILaunchScreen: {}
-        NSCameraUsageDescription: "Camera este necesară pentru a scana codul de bare al produselor."
+        NSCameraUsageDescription: "Camera este necesară pentru a scana codul de bare al produselor alimentare."
         NSHealthShareUsageDescription: "Aplicația necesită acces la datele tale de sănătate pentru a calcula caloriile."
         NSHealthUpdateUsageDescription: "Aplicația necesită acces pentru a actualiza datele de sănătate."
