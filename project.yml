@@ -7,14 +7,15 @@ targets:
     platform: iOS
     deploymentTarget: "17.0"
     sources:
-      - path: Models
-      - path: Services
-      - path: ViewModels
-      - path: Views
-      - path: ContentView.swift
-      - path: NutriAIProApp.swift
-      - path: iOS26Extensions.swift
+      - Models
+      - Services
+      - ViewModels
+      - Views
+      - ContentView.swift
+      - NutriAIProApp.swift
+      - iOS26Extensions.swift
     info:
+      path: Info.plist
       properties:
         UILaunchScreen: {}
         NSCameraUsageDescription: "Camera este necesară pentru a scana codul de bare al produselor alimentare."
