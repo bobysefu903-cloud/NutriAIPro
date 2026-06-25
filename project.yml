@@ -7,13 +7,13 @@ targets:
     platform: iOS
     deploymentTarget: "17.0"
     sources:
-      - Models
-      - Services
-      - ViewModels
-      - Views
-      - ContentView.swift
-      - NutriAIProApp.swift
-      - iOS26Extensions.swift
+      - path: Models
+      - path: Services
+      - path: ViewModels
+      - path: Views
+      - path: ContentView.swift
+      - path: NutriAIProApp.swift
+      - path: iOS26Extensions.swift
     info:
       properties:
         UILaunchScreen: {}
