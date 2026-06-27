@@ -102,7 +102,7 @@ struct ProfilView: View {
                         ZStack {
                             if #available(iOS 26, *) {
                                 Circle()
-                                    .glassEffect(.regular.tinted(Color(hex: "#4F46E5")))
+                                    .glassEffect()
                                     .frame(width: 90, height: 90)
                             } else {
                                 Circle()

@@ -570,9 +570,11 @@ struct ChatAIView: View {
                         .font(.system(size: 36))
                         .foregroundStyle(
                             viewModel.inputChat.isEmpty
-                            ? .secondary
-                            : LinearGradient(colors: [Color(hex: "#818CF8"), Color(hex: "#4F46E5")],
-                                             startPoint: .topLeading, endPoint: .bottomTrailing)
+                            ? AnyShapeStyle(Color.secondary)
+                            : AnyShapeStyle(LinearGradient(
+                                colors: [Color(hex: "#818CF8"), Color(hex: "#4F46E5")],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing))
                         )
                 }
                 .disabled(viewModel.inputChat.isEmpty)
@@ -722,9 +724,11 @@ struct AIMessageBubble: View {
                     .padding(.vertical, 10)
                     .background(
                         mesaj.esteAI
-                        ? Color.white.opacity(0.1)
-                        : LinearGradient(colors: [Color(hex: "#818CF8"), Color(hex: "#4F46E5")],
-                                         startPoint: .topLeading, endPoint: .bottomTrailing),
+                        ? AnyShapeStyle(Color.white.opacity(0.1))
+                        : AnyShapeStyle(LinearGradient(
+                            colors: [Color(hex: "#818CF8"), Color(hex: "#4F46E5")],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing)),
                         in: RoundedRectangle(cornerRadius: 18)
                     )
                     .overlay(

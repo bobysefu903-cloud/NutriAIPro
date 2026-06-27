@@ -75,7 +75,8 @@ final class AICoachViewModel {
                 seAnimaGradient = true
             }
         } else {
-            mesajEroare = serviciu.mesajEroare ?? "Eroare necunoscută la generarea planului."
+            let eroare = await MainActor.run { serviciu.mesajEroare }
+            mesajEroare = eroare ?? "Eroare necunoscută la generarea planului."
             mesajeChat.removeLast()
             adaugaMesajChat(text: "⚠️ A apărut o eroare. Încearcă din nou.", esteAI: true)
         }

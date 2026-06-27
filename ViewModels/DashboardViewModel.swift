@@ -154,11 +154,15 @@ final class DashboardViewModel {
     func sincronizeazaHealthKit() async {
         let hk = HealthKitManager.shared
         await hk.incarcaDateAzi()
-        self.caloriiArse = hk.caloriiArseAzi
-        self.pasi = hk.pasiAzi
-        self.distantaKm = hk.distantaKmAzi
-        jurnalAzi?.caloriiArseActiv = hk.caloriiArseAzi
-        jurnalAzi?.pasi = hk.pasiAzi
+        // HealthKitManager e @MainActor — captăm valorile pe main actor
+        let (kcal, pasi, km, kcalHK) = await MainActor.run {
+            (hk.caloriiArseAzi, hk.pasiAzi, hk.distantaKmAzi, hk.caloriiArseAzi)
+        }
+        self.caloriiArse = kcal
+        self.pasi = pasi
+        self.distantaKm = km
+        jurnalAzi?.caloriiArseActiv = kcalHK
+        jurnalAzi?.pasi = pasi
         salveaza()
     }
 

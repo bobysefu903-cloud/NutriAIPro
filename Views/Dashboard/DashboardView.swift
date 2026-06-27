@@ -297,8 +297,7 @@ struct AdaugaLaMasaSheet: View {
 
             // Tab Selector
             HStack(spacing: 0) {
-                ForEach(["Rețetele Mele", "Ingrediente"], id: \.self) { tab in
-                    let index = tab == "Rețetele Mele" ? 0 : 1
+                ForEach([("Rețetele Mele", 0), ("Ingrediente", 1)], id: \.0) { (tab, index) in
                     Button {
                         withAnimation(.spring(duration: 0.3)) { tabSelectat = index }
                     } label: {
@@ -312,7 +311,6 @@ struct AdaugaLaMasaSheet: View {
                                 if tabSelectat == index {
                                     RoundedRectangle(cornerRadius: 10)
                                         .fill(Color(hex: "#4F46E5").opacity(0.6))
-                                        .matchedGeometryEffect(id: "tabUnderline", in: .init())
                                 }
                             }
                     }

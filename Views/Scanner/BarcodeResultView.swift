@@ -58,7 +58,6 @@ struct BarcodeResultView: View {
                             .foregroundStyle(.white)
                         Text(barcode)
                             .font(.caption)
-                            .fontWeight(.mono)
                             .foregroundStyle(.secondary)
                             .monospaced()
                     }
@@ -344,7 +343,7 @@ struct ProductSuccessView: View {
                 ZStack {
                     if #available(iOS 26, *) {
                         RoundedRectangle(cornerRadius: 20, style: .continuous)
-                            .glassEffect(.regular.tinted(Color(hex: "#818CF8")))
+                            .glassEffect()
                             .frame(width: 80, height: 80)
                     } else {
                         RoundedRectangle(cornerRadius: 20, style: .continuous)
