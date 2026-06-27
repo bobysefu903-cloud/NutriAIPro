@@ -1,0 +1,19 @@
+name: NutriAIPro
+options:
+  bundleIdPrefix: com.nutriai
+targets:
+  NutriAIPro:
+    type: application
+    platform: iOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: .
+        excludes:
+          - "**/*.yml"
+          - ".github"
+    info:
+      properties:
+        UILaunchScreen: {}
+        NSCameraUsageDescription: "Camera este necesară pentru a scana codul de bare al produselor."
+        NSHealthShareUsageDescription: "Aplicația necesită acces la datele tale de sănătate pentru a calcula caloriile."
+        NSHealthUpdateUsageDescription: "Aplicația necesită acces pentru a actualiza datele de sănătate."

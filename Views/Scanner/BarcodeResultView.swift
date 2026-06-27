@@ -138,7 +138,7 @@ struct BarcodeResultView: View {
                                 }
                             }
                         }
-                        .pressEffect()
+                        .buttonStyle(.plain)
 
                         // MARK: Butoane Secundare
                         HStack(spacing: 12) {
@@ -691,5 +691,28 @@ struct ErrorProductView: View {
             .padding(.horizontal, 20)
         }
         .padding(20)
+    }
+}
+
+// MARK: - Toast View
+struct ToastView: View {
+    let mesaj: String
+
+    var body: some View {
+        Text(mesaj)
+            .font(.subheadline)
+            .fontWeight(.semibold)
+            .foregroundStyle(.white)
+            .padding(.horizontal, 20)
+            .padding(.vertical, 12)
+            .background {
+                Capsule()
+                    .fill(.black.opacity(0.8))
+                    .overlay {
+                        Capsule()
+                            .strokeBorder(.white.opacity(0.15), lineWidth: 1)
+                    }
+            }
+            .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 4)
     }
 }

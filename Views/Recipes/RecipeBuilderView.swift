@@ -49,7 +49,11 @@ struct RecipeBuilderView: View {
                             .tag(0)
 
                         // MARK: Pagina 1 — Ingrediente
-                        BuilderPage1(viewModel: viewModel, seAfisezaCautare: $seAfisezaCautare)
+                        BuilderPage1(
+                            viewModel: viewModel,
+                            seAfisezaCautare: $seAfisezaCautare,
+                            seAfisezaScannerBuilder: $seAfisezaScannerBuilder
+                        )
                             .tag(1)
 
                         // MARK: Pagina 2 — Rezumat & Salvare
@@ -297,6 +301,7 @@ struct BuilderPage0: View {
 struct BuilderPage1: View {
     @Bindable var viewModel: RecipeViewModel
     @Binding var seAfisezaCautare: Bool
+    @Binding var seAfisezaScannerBuilder: Bool
 
     var body: some View {
         VStack(spacing: 16) {

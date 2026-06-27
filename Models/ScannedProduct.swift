@@ -54,15 +54,19 @@ struct ScannedProduct: Identifiable, Equatable {
     func asIntrare(slot: SlotMasa, cantitate: Double) -> IntrareAliment {
         IntrareAliment(
             numeAliment: numeProdus,
+            cantitateGrame: cantitate,
             kcal: kcal(pentruGrame: cantitate),
             proteine: proteine(pentruGrame: cantitate),
             carbo: carbo(pentruGrame: cantitate),
             grasimi: grasimi(pentruGrame: cantitate),
-            gramaj: cantitate,
-            slot: slot,
+            slotMasa: slot,
             esteRinReteta: false
         )
     }
+
+    /// Proprietate convenabilă pentru accesarea slotului dintr-o IntrareAliment
+    /// (folosit în DashboardViewModel.adaugaIntrareDirecta)
+    var slotDefault: SlotMasa { .pranz }
 }
 
 // MARK: - OpenFoodFacts API Response Models
@@ -157,8 +161,8 @@ enum ScannerError: LocalizedError {
             return "Camera nu este disponibilă pe acest dispozitiv."
         case .permisiuneDenied:
             return "Permisiunea pentru cameră a fost refuzată. Activează-o din Setări > NutriAI Pro > Cameră."
+        }
     }
-}
 
     var errorDescriptionRomana: String {
         errorDescription ?? "Eroare necunoscută"

@@ -36,7 +36,7 @@ struct GlassCard<Content: View>: View {
             .background {
                 if #available(iOS 26.0, *) {
                     RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                        .glassEffect(tint: culoareTinta)
+                        .glassEffect()
                 } else {
                     ZStack {
                         RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)

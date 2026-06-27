@@ -198,6 +198,17 @@ final class DashboardViewModel {
         salveaza()
     }
 
+    // MARK: - Adaugă Intrare Directă (din Barcode Scanner)
+    /// Adaugă o intrare pre-construită direct în jurnalul de azi (folosit de scanner)
+    func adaugaIntrareDirecta(_ intrare: IntrareAliment) {
+        guard let jurnal = jurnalAzi else { return }
+        withAnimation(.spring(duration: 0.4)) {
+            jurnal.adaugaIntrare(intrare, laSlot: intrare.slotMasa)
+        }
+        salveaza()
+        UINotificationFeedbackGenerator().notificationOccurred(.success)
+    }
+
     // MARK: - Șterge Intrare
     func stergeIntrare(laIndex index: Int, dinSlot slot: SlotMasa) {
         guard let jurnal = jurnalAzi else { return }

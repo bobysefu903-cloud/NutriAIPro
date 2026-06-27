@@ -148,7 +148,8 @@ struct FundaleAnimatGradient: View {
 
             // Noise overlay pentru textură
             Rectangle()
-                .fill(.ultraThinMaterial.opacity(0.1))
+                .fill(.ultraThinMaterial)
+                .opacity(0.1)
         }
         .onAppear {
             withAnimation(.easeInOut(duration: 4).repeatForever(autoreverses: true)) {

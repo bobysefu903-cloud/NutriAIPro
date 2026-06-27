@@ -167,6 +167,21 @@ final class RecipeViewModel {
         withAnimation { incarcaRetete() }
     }
 
+    // MARK: - Salvează Ingredient Nou (din Barcode Scanner)
+    /// Salvează un ingredient scanat în baza de date locală SwiftData
+    func salveazaIngredientNou(_ ingredient: Ingredient) {
+        guard let context = modelContext else {
+            // Dacă nu avem context, adaugă doar în lista în memorie
+            toateIngredientele.append(ingredient)
+            filtreazaIngrediente()
+            return
+        }
+        context.insert(ingredient)
+        try? context.save()
+        toateIngredientele.append(ingredient)
+        filtreazaIngrediente()
+    }
+
     // MARK: - Toggle Preferată
     func togglePreferata(_ reteta: Reteta) {
         withAnimation(.spring(duration: 0.3)) {
